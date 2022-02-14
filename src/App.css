@@ -4,5 +4,9 @@
  box-sizing: border-box;
 }
 body {
- 
+ background-image: url('./images/lucas-benjamin-wQLAGv4_OYs-unsplash.jpg');
+ background-position: center;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-size: cover;
 }
