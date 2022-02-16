@@ -5,8 +5,9 @@ import Input from './components/Input';
 function App() {
   return (
     <div className='App'>
-      <Header />
-      <Input />
+      <div className="lightBanner"></div>
+      {/* <Header />
+      <Input /> */}
     </div>
   );
 }
