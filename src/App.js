@@ -4,10 +4,12 @@ import Input from './components/Input';
 
 function App() {
   return (
-    <div className='App'>
-      <div className="lightBanner"></div>
-      {/* <Header />
-      <Input /> */}
+    <div>
+      <div className='lightBanner'></div>
+      <div className='App'>
+        <Header />
+        <Input />
+      </div>
     </div>
   );
 }

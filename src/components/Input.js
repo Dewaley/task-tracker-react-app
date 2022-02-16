@@ -2,10 +2,10 @@ import React from 'react'
 
 const Input = () => {
   return (
-    <div>
-     <span>+</span>
-     <input type="text" name="" id="" placeholder='Enter Task'/>
-    </div>
+     <form action="">
+       <span>+</span>
+       <input type="text" placeholder='Create new todo..'/>
+     </form>
   )
 }
 
