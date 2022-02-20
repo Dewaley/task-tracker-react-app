@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Tasks = () => {
+const Tasks = ({todos}) => {
   return (
-    <div>
-     Tasks
-    </div>
+    todos.map((todo)=> (
+      <h1>{todo.text}</h1>
+  ))
   )
 }
 
