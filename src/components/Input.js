@@ -6,11 +6,15 @@ const Input = ({ todos, setTodos, input, setInput }) => {
     setInput(e.target.value);
   };
   const addTask = () => {
-    setTodos([
-      ...todos,
-      { id: new Date().getTime().toString(), text: input, isComplete: false },
-    ]);
-    setInput('');
+    if (input === '') {
+      alert('Please enter a task');
+    } else {
+      setTodos([
+        ...todos,
+        { id: new Date().getTime().toString(), text: input, isComplete: false },
+      ]);
+      setInput('');
+    }
   };
   const submitForm = (e) => {
     e.preventDefault();
@@ -18,7 +22,9 @@ const Input = ({ todos, setTodos, input, setInput }) => {
   };
   return (
     <form action='' onSubmit={submitForm}>
-      <span><BsCircle className='circle-todo-form' color=''/></span>
+      <span>
+        <BsCircle className='circle-todo-form' color='' />
+      </span>
       <input
         type='text'
         placeholder='Create new todo..'
