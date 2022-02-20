@@ -23,7 +23,7 @@ const Input = ({ todos, setTodos, input, setInput }) => {
   return (
     <form action='' onSubmit={submitForm}>
       <span>
-        <BsCircle className='circle-todo-form' color='' />
+        <BsCircle className='circle-todo-form' color='hsl(233, 11%, 84%)' />
       </span>
       <input
         type='text'
