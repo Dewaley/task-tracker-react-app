@@ -10,20 +10,20 @@ const Tasks = ({ todos }) => {
           {todos.map((todo) => {
             return (
               <div className='todoTemplate'>
-                {/* <label>
-          {todo.isComplete ? (
-            <BsCheck className='icon-tick' />
-          ) : (
-            <BsCircle className='icon-circle' />
-          )}
-          <span className='list'>{todo.text}</span>
-        </label> */}
                 <div>
-                  <BsCircle
-                    className='checkCircle'
-                    color='hsl(235, 19%, 35%)'
-                    size={18}
-                  />
+                  {todo.isComplete ? (
+                    <BsCheck
+                      className='checkedCircle'
+                      color='hsl(235, 19%, 35%)'
+                      size={18}
+                    />
+                  ) : (
+                    <BsCircle
+                      className='checkCircle'
+                      color='hsl(235, 19%, 35%)'
+                      size={18}
+                    />
+                  )}
                   <span>{todo.text}</span>
                 </div>
                 <FaTimes className='deleteTask' color='hsl(233, 11%, 84%)' />

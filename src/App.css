@@ -80,8 +80,8 @@ form input {
   text-size-adjust: none;
   padding: 0;
 }
-.checkCircle {
-  margin-right: 5px;
+.checkCircle, .checkedCircle {
+  margin-right: 8px;
   cursor: pointer;
 }
 .deleteTask {
@@ -92,5 +92,5 @@ form input {
  display: flex;
  justify-content: space-between;
  align-items: center;
- color: hsl(233, 11%, 84%);
+ color: hsl(235, 19%, 35%);
 }
