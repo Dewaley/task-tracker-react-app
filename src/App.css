@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;700&display=swap');
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Josefin Sans';
+  text-size-adjust: none;
 }
 /* mobile first */
 body {
@@ -14,11 +14,6 @@ body {
   position: relative;
   height: 100vh;
   width: 100vw;
-}
-.lightBanner {
-  height: 200px;
-  width: 100vw;
-  background-image: url('./images/bg-mobile-light.jpg');
 }
 .App {
   height: 90vh;
@@ -47,15 +42,19 @@ form {
   padding: 7px;
   border-radius: 4px;
   margin-bottom: 15px;
+  color: hsl(235, 19%, 35%);
 }
 form span {
   margin: 5px;
 }
-input {
+form input {
   width: 100%;
   background-color: transparent;
   outline: none;
   border: none;
+}
+::placeholder {
+  color: hsl(235, 19%, 35%);
 }
 /* styling todoList */
 .todoList {
@@ -66,14 +65,32 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 7px;
+  border-bottom: 1px solid hsl(233, 11%, 84%);
+  padding: 14px;
 }
-.todoTemplate label {
+.todoTemplate div {
+  background-color: hsl(0, 0%, 98%);
+  border-radius: 4px;
   display: flex;
   align-items: center;
 }
 .todoTemplate span {
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 15px;
+  text-align: center;
+  line-height: 80%;
+  text-size-adjust: none;
+  padding: 0;
+}
+.checkCircle {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.deleteTask {
+  cursor: pointer;
+}
+.infoAndActivity {
+ padding: 14px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ color: hsl(233, 11%, 84%);
 }
