@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { BsCircle } from 'react-icons/bs';
 
 const Input = ({ todos, setTodos, input, setInput }) => {
@@ -10,8 +11,8 @@ const Input = ({ todos, setTodos, input, setInput }) => {
       alert('Please enter a task');
     } else {
       setTodos([
-        ...todos,
         { id: new Date().getTime().toString(), text: input, isComplete: false },
+        ...todos,
       ]);
       setInput('');
     }

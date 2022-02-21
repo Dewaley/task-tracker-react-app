@@ -9,24 +9,26 @@ const Tasks = ({ todos }) => {
         <div>
           {todos.map((todo) => {
             return (
-              <div className='todoTemplate'>
+              <div className='todoTemplate' key={todo.id}>
                 <div>
                   {todo.isComplete ? (
                     <BsCheck
                       className='checkedCircle'
                       color='hsl(235, 19%, 35%)'
                       size={18}
+                      onClick={() => !todo.isComplete}
                     />
                   ) : (
                     <BsCircle
                       className='checkCircle'
                       color='hsl(235, 19%, 35%)'
                       size={18}
+                      onClick={() => !todo.isComplete}
                     />
                   )}
                   <span>{todo.text}</span>
                 </div>
-                <FaTimes className='deleteTask' color='hsl(233, 11%, 84%)' />
+                <FaTimes className='deleteTask' color='hsl(233, 11%, 84%)'/>
               </div>
             );
           })}
