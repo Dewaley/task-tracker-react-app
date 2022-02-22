@@ -112,9 +112,15 @@ form input {
   padding: 14px;
   border-radius: 4px;
 }
-.options span {
+.options button {
+  border: none;
+  outline: none;
+  background-color: transparent;
   margin: 0 5px;
   font-size: 13px;
   color: hsl(236, 9%, 61%);
   cursor: pointer;
+}
+.options .btn.active {
+  color: hsl(220, 98%, 61%);
 }

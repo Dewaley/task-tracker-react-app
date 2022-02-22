@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Input from './components/Input';
 import TaskList from './components/TaskList';
@@ -7,6 +7,8 @@ import TaskList from './components/TaskList';
 function App() {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
+  const [status, setStatus] = useState('');
+  const [displayedTodos, setDisplayedTodos] = useState([]);
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -40,6 +42,22 @@ function App() {
     const newTodos = todos.filter((todo) => todo.isComplete === false);
     setTodos(newTodos);
   };
+  const displayFunction = () => {
+    switch (status) {
+      case 'active':
+        setDisplayedTodos(todos.map((todo) => todo.isComplete === false));
+        break;
+      case 'completed':
+        setDisplayedTodos(todos.map((todo) => todo.isComplete === true));
+        break;
+      default:
+        setDisplayedTodos(todos);
+        break;
+    }
+  };
+  useEffect(() => {
+    displayFunction();
+  }, [status,todos]);
   return (
     <div className='App'>
       <Header />
@@ -50,6 +68,9 @@ function App() {
         handleCheck={handleCheck}
         deleteTask={deleteTask}
         clearCompleted={clearCompleted}
+        setStatus={setStatus}
+        status={status}
+        displayedTodos={displayedTodos}
       />
     </div>
   );
