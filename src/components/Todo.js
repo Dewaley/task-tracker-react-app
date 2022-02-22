@@ -9,7 +9,7 @@ const Todo = ({handleCheck, text, id, isComplete,deleteTask}) => {
         {isComplete ? (
           <BsCheck
             className='checkedCircle'
-            color='hsl(235, 19%, 35%)'
+            color='white'
             size={18}
             onClick={() => handleCheck(id)}
           />
