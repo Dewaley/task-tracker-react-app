@@ -24,18 +24,22 @@ function App() {
     }
   };
   const deleteTask = (id) => {
-    const newTodos = todos.filter(todo => todo.id !== id)
-    setTodos(newTodos)
-  }
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
   const handleCheck = (id) => {
-    const newTodos = todos.map(todo => {
-      if(todo.id === id) {
-        todo.isComplete = !todo.isComplete
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
       }
-      return todo
-    })
-    setTodos(newTodos)
-  }
+      return todo;
+    });
+    setTodos(newTodos);
+  };
+  const clearCompleted = () => {
+    const newTodos = todos.filter((todo) => todo.isComplete === false);
+    setTodos(newTodos);
+  };
   return (
     <div className='App'>
       <Header />
@@ -45,6 +49,7 @@ function App() {
         setTodos={setTodos}
         handleCheck={handleCheck}
         deleteTask={deleteTask}
+        clearCompleted={clearCompleted}
       />
     </div>
   );
