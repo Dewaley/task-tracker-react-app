@@ -1,9 +1,9 @@
 import React from 'react';
 import { BsCircle } from 'react-icons/bs';
 
-const Input = ({ input, onInputChange, addTask}) => {
+const Input = ({ input, onInputChange, addTask, theme}) => {
   return (
-    <form action='' onSubmit={addTask}>
+    <form action='' onSubmit={addTask} className={theme}>
       <span>
         <BsCircle className='circle-todo-form' color='hsl(235, 19%, 35%)' />
       </span>

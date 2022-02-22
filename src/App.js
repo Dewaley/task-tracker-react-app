@@ -62,8 +62,9 @@ function App() {
   return (
     <div className='App'>
       <Header theme={theme} setTheme={setTheme}/>
-      <Input input={input} addTask={addTask} onInputChange={onInputChange} />
+      <Input input={input} addTask={addTask} onInputChange={onInputChange} theme={theme}/>
       <TaskList
+        theme={theme}
         todos={todos}
         setTodos={setTodos}
         handleCheck={handleCheck}

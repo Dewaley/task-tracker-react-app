@@ -15,6 +15,10 @@ body {
   height: 100vh;
   width: 100vw;
 }
+body.dark {
+  background-color: hsl(235, 21%, 11%);
+  background-image: url('./images/bg-mobile-dark.jpg');
+}
 .App {
   height: 90vh;
   width: 90vw;
@@ -45,6 +49,10 @@ form {
   margin-bottom: 15px;
   color: hsl(235, 19%, 35%);
 }
+form.dark {
+  background-color: hsl(235, 24%, 19%);
+  color: hsl(234, 11%, 52%);
+}
 form span {
   margin: 5px;
 }
@@ -54,8 +62,14 @@ form input {
   outline: none;
   border: none;
 }
+form.dark input {
+  color: hsl(236, 9%, 61%);
+}
 ::placeholder {
   color: hsl(235, 19%, 35%);
+}
+form.dark ::placeholder {
+  color: hsl(236, 9%, 61%);
 }
 /* styling todoList */
 .todoList {
@@ -63,15 +77,21 @@ form input {
   border-radius: 4px;
   margin-bottom: 15px;
 }
+.dark .todoList {
+  background-color: hsl(235, 24%, 19%);
+}
 .todoTemplate {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid hsl(233, 11%, 84%);
+  border-bottom: 0.5px solid hsl(233, 11%, 84%);
   padding: 14px;
 }
+.dark .todoTemplate {
+  border-bottom: 0.5px solid hsl(233, 14%, 35%);
+  color: hsl(236, 9%, 61%);
+}
 .todoTemplate div {
-  background-color: hsl(0, 0%, 98%);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -112,6 +132,9 @@ form input {
   background-color: hsl(0, 0%, 98%);
   padding: 14px;
   border-radius: 4px;
+}
+.dark .options {
+  background-color: hsl(235, 24%, 19%);
 }
 .options button {
   border: none;

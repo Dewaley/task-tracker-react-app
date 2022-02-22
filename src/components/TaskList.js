@@ -8,7 +8,8 @@ const TaskList = ({
   clearCompleted,
   setStatus,
   status,
-  displayedTodos
+  displayedTodos,
+  theme
 }) => {
   const btns = document.querySelectorAll('.btn');
   btns.forEach((btn) => {
@@ -25,7 +26,7 @@ const TaskList = ({
     <div>
       <div>
         {todos.length > 0 && (
-          <div className='container'>
+          <div className={theme}>
             <div className='todoList'>
               {displayedTodos.map((todo) => {
                 return (
