@@ -27,6 +27,7 @@ body {
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   letter-spacing: 6px;
   color: white;
   font-weight: 700;

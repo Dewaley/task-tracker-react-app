@@ -5,6 +5,7 @@ import Input from './components/Input';
 import TaskList from './components/TaskList';
 
 function App() {
+  const [theme,setTheme] =useState('light')
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('');
@@ -60,7 +61,7 @@ function App() {
   }, [status,todos]);
   return (
     <div className='App'>
-      <Header />
+      <Header theme={theme} setTheme={setTheme}/>
       <Input input={input} addTask={addTask} onInputChange={onInputChange} />
       <TaskList
         todos={todos}
