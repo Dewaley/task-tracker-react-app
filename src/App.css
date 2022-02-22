@@ -102,7 +102,8 @@ form.dark ::placeholder {
   text-size-adjust: none;
   padding: 0;
 }
-.checkCircle, .checkedCircle {
+.checkCircle,
+.checkedCircle {
   margin-right: 8px;
   cursor: pointer;
 }
@@ -118,12 +119,15 @@ form.dark ::placeholder {
   cursor: pointer;
 }
 .infoAndActivity {
- padding: 14px;
- font-size: 12px;
- display: flex;
- justify-content: space-between;
- align-items: center;
- color: hsl(236, 9%, 61%);
+  padding: 14px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsl(236, 9%, 61%);
+}
+.infoAndActivity .options {
+  display: none;
 }
 .options {
   display: flex;
@@ -147,4 +151,27 @@ form.dark ::placeholder {
 }
 .options .btn.active {
   color: hsl(220, 98%, 61%);
+}
+@media all and (min-width: 375px) {
+  body {
+    background-image: url('./images/bg-desktop-light.jpg');
+  }
+  body.dark {
+    background-image: url('./images/bg-desktop-dark.jpg');
+  }
+  .App {
+    max-width: 400px;
+  }
+  .header {
+    margin: 25px 0 35px;
+  }
+  .options {
+    display: none;
+  }
+  .infoAndActivity .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
 }

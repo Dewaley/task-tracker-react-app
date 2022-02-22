@@ -9,7 +9,7 @@ const TaskList = ({
   setStatus,
   status,
   displayedTodos,
-  theme
+  theme,
 }) => {
   const btns = document.querySelectorAll('.btn');
   btns.forEach((btn) => {
@@ -41,6 +41,17 @@ const TaskList = ({
               })}
               <div className='infoAndActivity'>
                 <p>{todos.length} items left</p>
+                <div className='options'>
+                  <button className='btn' value={'all'}>
+                    All
+                  </button>
+                  <button className='btn' value={'active'}>
+                    Active
+                  </button>
+                  <button className='btn' value={'completed'}>
+                    Completed
+                  </button>
+                </div>
                 <p onClick={clearCompleted} style={{ cursor: 'pointer' }}>
                   Clear Completed
                 </p>
