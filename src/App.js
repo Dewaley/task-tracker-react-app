@@ -1,12 +1,12 @@
 import './App.css';
-import {useState} from 'react'
+import { useState } from 'react';
 import Header from './components/Header';
 import Input from './components/Input';
 import TaskList from './components/TaskList';
 
 function App() {
-  const [input,setInput] = useState('')
-  const [todos,setTodos] = useState([])
+  const [input, setInput] = useState('');
+  const [todos, setTodos] = useState([]);
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -23,26 +23,30 @@ function App() {
       setInput('');
     }
   };
+  const deleteTask = (id) => {
+    const newTodos = todos.filter(todo => todo.id !== id)
+    setTodos(newTodos)
+  }
   const handleCheck = (id) => {
     const newTodos = todos.map(todo => {
       if(todo.id === id) {
         todo.isComplete = !todo.isComplete
       }
-      return todos
+      return todo
     })
     setTodos(newTodos)
-    console.log(todos)
   }
   return (
-      <div className='App'>
-        <Header />
-        <Input 
-          input={input}
-          addTask={addTask}
-          onInputChange={onInputChange}
-        />
-        <TaskList todos={todos} setTodos={setTodos} handleCheck={handleCheck}/>
-      </div>
+    <div className='App'>
+      <Header />
+      <Input input={input} addTask={addTask} onInputChange={onInputChange} />
+      <TaskList
+        todos={todos}
+        setTodos={setTodos}
+        handleCheck={handleCheck}
+        deleteTask={deleteTask}
+      />
+    </div>
   );
 }
 
