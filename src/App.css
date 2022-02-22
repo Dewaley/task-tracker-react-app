@@ -60,6 +60,7 @@ form input {
 .todoList {
   background-color: hsl(0, 0%, 98%);
   border-radius: 4px;
+  margin-bottom: 15px;
 }
 .todoTemplate {
   display: flex;
@@ -89,7 +90,7 @@ form input {
   border-radius: 50%;
 }
 .complete {
-  opacity: 0.3;
+  color: hsl(236, 9%, 61%);
   text-decoration: line-through;
 }
 .deleteTask {
@@ -97,8 +98,23 @@ form input {
 }
 .infoAndActivity {
  padding: 14px;
+ font-size: 12px;
  display: flex;
  justify-content: space-between;
  align-items: center;
- color: hsl(235, 19%, 35%);
+ color: hsl(236, 9%, 61%);
+}
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 98%);
+  padding: 14px;
+  border-radius: 4px;
+}
+.options span {
+  margin: 0 5px;
+  font-size: 13px;
+  color: hsl(236, 9%, 61%);
+  cursor: pointer;
 }
