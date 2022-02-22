@@ -2,7 +2,7 @@ import React from 'react';
 import { BsCircle, BsCheck } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
 
-const Tasks = ({ todos,setTodos}) => {
+const TaskList = ({ todos, setTodos, handleCheck }) => {
   return (
     <div className='todoList'>
       {todos.length > 0 && (
@@ -16,14 +16,14 @@ const Tasks = ({ todos,setTodos}) => {
                       className='checkedCircle'
                       color='hsl(235, 19%, 35%)'
                       size={18}
-                      onClick={() => !todo.isComplete}
+                      onClick={handleCheck}
                     />
                   ) : (
                     <BsCircle
                       className='checkCircle'
                       color='hsl(235, 19%, 35%)'
                       size={18}
-                      onClick={() => !todo.isComplete}
+                      onClick={handleCheck}
                     />
                   )}
                   <span>{todo.text}</span>
@@ -46,4 +46,4 @@ const Tasks = ({ todos,setTodos}) => {
   );
 };
 
-export default Tasks;
+export default TaskList;

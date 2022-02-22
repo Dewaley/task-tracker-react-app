@@ -2,7 +2,7 @@ import './App.css';
 import {useState} from 'react'
 import Header from './components/Header';
 import Input from './components/Input';
-import Tasks from './components/Tasks';
+import TaskList from './components/TaskList';
 
 function App() {
   const [input,setInput] = useState('')
@@ -15,13 +15,24 @@ function App() {
     if (input === '') {
       alert('Please enter a task');
     } else {
-      setTodos([
+      const newTodos = [
         { id: new Date().getTime().toString(), text: input, isComplete: false },
         ...todos,
-      ]);
+      ];
+      setTodos(newTodos);
       setInput('');
     }
   };
+  const handleCheck = (id) => {
+    const newTodos = todos.map(todo => {
+      if(todo.id === id) {
+        todo.isComplete = !todo.isComplete
+      }
+      return todos
+    })
+    setTodos(newTodos)
+    console.log(todos)
+  }
   return (
       <div className='App'>
         <Header />
@@ -30,7 +41,7 @@ function App() {
           addTask={addTask}
           onInputChange={onInputChange}
         />
-        <Tasks todos={todos} setTodos={setTodos} />
+        <TaskList todos={todos} setTodos={setTodos} handleCheck={handleCheck}/>
       </div>
   );
 }
