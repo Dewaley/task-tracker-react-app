@@ -21,7 +21,7 @@ const Todo = ({handleCheck, text, id, isComplete,deleteTask}) => {
             onClick={() => handleCheck(id)}
           />
         )}
-        <span>{text}</span>
+        <span className={isComplete ? "complete" : null}>{text}</span>
       </div>
       <FaTimes
         className='deleteTask'
