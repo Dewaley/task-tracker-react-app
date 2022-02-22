@@ -2,7 +2,7 @@ import React from 'react';
 import { BsCircle, BsCheck } from 'react-icons/bs';
 import { FaTimes } from 'react-icons/fa';
 
-const Tasks = ({ todos }) => {
+const Tasks = ({ todos,setTodos}) => {
   return (
     <div className='todoList'>
       {todos.length > 0 && (
@@ -28,7 +28,11 @@ const Tasks = ({ todos }) => {
                   )}
                   <span>{todo.text}</span>
                 </div>
-                <FaTimes className='deleteTask' color='hsl(233, 11%, 84%)'/>
+                <FaTimes
+                  className='deleteTask'
+                  color='hsl(233, 11%, 84%)'
+                  // onClick={()=> setTodos(todos.filter(todo => todo.id !== todo.id))}
+                />
               </div>
             );
           })}
