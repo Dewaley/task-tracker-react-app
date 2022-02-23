@@ -5,7 +5,7 @@ import Input from './components/Input';
 import TaskList from './components/TaskList';
 
 function App() {
-  const [theme,setTheme] =useState('light')
+  const [theme, setTheme] = useState('light');
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('');
@@ -43,26 +43,24 @@ function App() {
     const newTodos = todos.filter((todo) => todo.isComplete === false);
     setTodos(newTodos);
   };
-  const displayFunction = () => {
-    switch (status) {
-      case 'active':
-        setDisplayedTodos(todos.map((todo) => todo.isComplete === false));
-        break;
-      case 'completed':
-        setDisplayedTodos(todos.map((todo) => todo.isComplete === true));
-        break;
-      default:
-        setDisplayedTodos(todos);
-        break;
-    }
-  };
-  useEffect(() => {
-    displayFunction();
-  }, [status,todos]);
+  const setActive = () => {
+    setDisplayedTodos(todos.map((todo) => todo.isComplete === false))
+  }
+  const setCompleted = () => {
+    setDisplayedTodos(todos.map((todo) => todo.isComplete === true));
+  }
+  const setAll = () => {
+    setDisplayedTodos(todos);
+  }
   return (
     <div className='App'>
-      <Header theme={theme} setTheme={setTheme}/>
-      <Input input={input} addTask={addTask} onInputChange={onInputChange} theme={theme}/>
+      <Header theme={theme} setTheme={setTheme} />
+      <Input
+        input={input}
+        addTask={addTask}
+        onInputChange={onInputChange}
+        theme={theme}
+      />
       <TaskList
         theme={theme}
         todos={todos}
