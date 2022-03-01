@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 import { useState, useEffect } from 'react';
 import Header from './components/Header';
@@ -9,7 +10,7 @@ function App() {
   const [input, setInput] = useState('');
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('');
-  const [displayedTodos, setDisplayedTodos] = useState([]);
+  const [displayed, setDisplayed] = useState([]);
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -24,6 +25,7 @@ function App() {
       ];
       setTodos(newTodos);
       setInput('');
+      setDisplayed(todos);
     }
   };
   const deleteTask = (id) => {
@@ -43,15 +45,35 @@ function App() {
     const newTodos = todos.filter((todo) => todo.isComplete === false);
     setTodos(newTodos);
   };
-  const setActive = () => {
-    setDisplayedTodos(todos.map((todo) => todo.isComplete === false))
+  const filtering = () => {
+    switch (status) {
+      case 'completed':
+        setDisplayed(todos.filter((todo) => todo.isComplete === true));
+        break;
+      case 'active':
+        setDisplayed(todos.filter((todo) => todo.isComplete === false));
+        break;
+      default:
+        setDisplayed(todos);
+        break;
+    }
+  };
+  const saveTodos = () => {
+    localStorage.setItem('todos',JSON.stringify(todos))
   }
-  const setCompleted = () => {
-    setDisplayedTodos(todos.map((todo) => todo.isComplete === true));
+  const getTodos = () => {
+    const savedTodo = JSON.parse(localStorage.getItem('todos'))
+    setTodos(savedTodo)
   }
-  const setAll = () => {
-    setDisplayedTodos(todos);
-  }
+  useEffect(()=>{
+    getTodos()
+  },[])
+  useEffect(() => {
+    filtering()
+    saveTodos()
+  }, [status,todos,theme]);
+  
+
   return (
     <div className='App'>
       <Header theme={theme} setTheme={setTheme} />
@@ -70,7 +92,7 @@ function App() {
         clearCompleted={clearCompleted}
         setStatus={setStatus}
         status={status}
-        displayedTodos={displayedTodos}
+        displayed={displayed}
       />
     </div>
   );

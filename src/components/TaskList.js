@@ -8,11 +8,15 @@ const TaskList = ({
   clearCompleted,
   setStatus,
   status,
-  displayedTodos,
+  displayed,
   theme,
+  setAll,
+  setCompleted,
+  setActive,
+  filtering,
 }) => {
-  const btns = document.querySelectorAll('.btn');
-  btns.forEach((btn) => {
+  const button = document.querySelectorAll('.btn');
+  button.forEach((btn) => {
     btn.addEventListener('click', () => {
       setStatus(btn.value);
     });
@@ -28,7 +32,7 @@ const TaskList = ({
         {todos.length > 0 && (
           <div className={theme}>
             <div className='todoList'>
-              {displayedTodos.map((todo) => {
+              {displayed.map((todo) => {
                 return (
                   <Todo
                     handleCheck={handleCheck}
@@ -42,13 +46,17 @@ const TaskList = ({
               <div className='infoAndActivity'>
                 <p>{todos.length} items left</p>
                 <div className='options'>
-                  <button className='btn' value={'all'}>
+                  <button className='btn' value={'all'} onClick={setAll}>
                     All
                   </button>
-                  <button className='btn' value={'active'}>
+                  <button className='btn' value={'active'} onClick={setActive}>
                     Active
                   </button>
-                  <button className='btn' value={'completed'}>
+                  <button
+                    className='btn'
+                    value={'completed'}
+                    onClick={setCompleted}
+                  >
                     Completed
                   </button>
                 </div>
