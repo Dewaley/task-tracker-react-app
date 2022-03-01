@@ -11,6 +11,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState('');
   const [displayed, setDisplayed] = useState([]);
+  const [completed, setCompleted] = useState();
   const onInputChange = (e) => {
     setInput(e.target.value);
   };
@@ -68,12 +69,17 @@ function App() {
     setTodos(savedTodo);
     setTheme(savedTheme);
   };
+  const getNum = () => {
+    const arrayCompleted = todos.filter((todo) => todo.isComplete === false);
+    setCompleted(arrayCompleted.length);
+  }
   useEffect(() => {
     getTodos();
   }, []);
   useEffect(() => {
     filtering();
     saveTodos();
+    getNum()
   }, [status, todos, theme]);
 
   return (
@@ -96,6 +102,7 @@ function App() {
           setStatus={setStatus}
           status={status}
           displayed={displayed}
+          completed={completed}
         />
       </div>
     </div>

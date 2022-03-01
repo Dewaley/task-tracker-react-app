@@ -13,7 +13,7 @@ const TaskList = ({
   setAll,
   setCompleted,
   setActive,
-  filtering,
+  completed
 }) => {
   const button = document.querySelectorAll('.btn');
   button.forEach((btn) => {
@@ -44,7 +44,7 @@ const TaskList = ({
                 );
               })}
               <div className='infoAndActivity'>
-                <p>{todos.length} items left</p>
+                <p>{completed === 1 ? `1 item left` : `${completed} items left`}</p>
                 <div className='options'>
                   <button className='btn' value={'all'} onClick={setAll}>
                     All
