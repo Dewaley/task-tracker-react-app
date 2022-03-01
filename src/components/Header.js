@@ -10,7 +10,6 @@ const Header = ({ theme, setTheme }) => {
           style={{ cursor: 'pointer' }}
           onClick={() => {
             setTheme('dark');
-            document.body.classList.add('dark');
           }}
           size={26}
         />
@@ -19,7 +18,6 @@ const Header = ({ theme, setTheme }) => {
           style={{ cursor: 'pointer' }}
           onClick={() => {
             setTheme('light');
-            document.body.classList.remove('dark');
           }}
           size={26}
         />

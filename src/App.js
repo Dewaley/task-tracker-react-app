@@ -59,41 +59,45 @@ function App() {
     }
   };
   const saveTodos = () => {
-    localStorage.setItem('todos',JSON.stringify(todos))
-  }
+    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem('theme', theme);
+  };
   const getTodos = () => {
-    const savedTodo = JSON.parse(localStorage.getItem('todos'))
-    setTodos(savedTodo)
-  }
-  useEffect(()=>{
-    getTodos()
-  },[])
+    const savedTodo = JSON.parse(localStorage.getItem('todos'));
+    const savedTheme = localStorage.getItem('theme');
+    setTodos(savedTodo);
+    setTheme(savedTheme);
+  };
   useEffect(() => {
-    filtering()
-    saveTodos()
-  }, [status,todos,theme]);
-  
+    getTodos();
+  }, []);
+  useEffect(() => {
+    filtering();
+    saveTodos();
+  }, [status, todos, theme]);
 
   return (
-    <div className='App'>
-      <Header theme={theme} setTheme={setTheme} />
-      <Input
-        input={input}
-        addTask={addTask}
-        onInputChange={onInputChange}
-        theme={theme}
-      />
-      <TaskList
-        theme={theme}
-        todos={todos}
-        setTodos={setTodos}
-        handleCheck={handleCheck}
-        deleteTask={deleteTask}
-        clearCompleted={clearCompleted}
-        setStatus={setStatus}
-        status={status}
-        displayed={displayed}
-      />
+    <div className={`body ${theme}`}>
+      <div className='App'>
+        <Header theme={theme} setTheme={setTheme} />
+        <Input
+          input={input}
+          addTask={addTask}
+          onInputChange={onInputChange}
+          theme={theme}
+        />
+        <TaskList
+          theme={theme}
+          todos={todos}
+          setTodos={setTodos}
+          handleCheck={handleCheck}
+          deleteTask={deleteTask}
+          clearCompleted={clearCompleted}
+          setStatus={setStatus}
+          status={status}
+          displayed={displayed}
+        />
+      </div>
     </div>
   );
 }

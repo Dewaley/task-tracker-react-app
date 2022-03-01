@@ -6,7 +6,7 @@
   text-size-adjust: none;
 }
 /* mobile first */
-body {
+.body {
   background-color: hsl(236, 33%, 92%);
   background-image: url('./images/bg-mobile-light.jpg');
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@ body {
   height: 100vh;
   width: 100vw;
 }
-body.dark {
+.body.dark {
   background-color: hsl(235, 21%, 11%);
   background-image: url('./images/bg-mobile-dark.jpg');
 }
@@ -44,7 +44,7 @@ form {
   background-color: hsl(0, 0%, 98%);
   align-items: center;
   justify-content: center;
-  padding: 7px;
+  padding: 8px;
   border-radius: 4px;
   margin-bottom: 15px;
   color: hsl(235, 19%, 35%);
@@ -153,10 +153,10 @@ form.dark ::placeholder {
   color: hsl(220, 98%, 61%);
 }
 @media all and (min-width: 375px) {
-  body {
+  .body {
     background-image: url('./images/bg-desktop-light.jpg');
   }
-  body.dark {
+  .body.dark {
     background-image: url('./images/bg-desktop-dark.jpg');
   }
   .App {
