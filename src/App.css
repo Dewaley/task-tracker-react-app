@@ -97,7 +97,6 @@ form.dark ::placeholder {
   align-items: center;
 }
 .todoTemplate span {
-  text-align: center;
   line-height: 80%;
   text-size-adjust: none;
   padding: 0;
