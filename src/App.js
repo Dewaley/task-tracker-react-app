@@ -19,6 +19,7 @@ function App() {
     e.preventDefault();
     if (input.trim() === '') {
       alert('Please enter a task');
+      setInput('');
     } else {
       const newTodos = [
         { id: new Date().getTime().toString(), text: input.trim(), isComplete: false },
