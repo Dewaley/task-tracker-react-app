@@ -17,11 +17,11 @@ function App() {
   };
   const addTask = (e) => {
     e.preventDefault();
-    if (input === '') {
+    if (input.trim() === '') {
       alert('Please enter a task');
     } else {
       const newTodos = [
-        { id: new Date().getTime().toString(), text: input, isComplete: false },
+        { id: new Date().getTime().toString(), text: input.trim(), isComplete: false },
         ...todos,
       ];
       setTodos(newTodos);
